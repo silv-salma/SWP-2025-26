@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Salima\\OneDrive - HTL Spengergasse\\Desktop\\3AHWII\\SWP\\SWP-2025-26\\2025-09-03\\2025-09-03.csproj": {}
+    "C:\\Users\\Salima\\OneDrive - HTL Spengergasse\\Desktop\\3AHWII\\SWP-2025-26\\2025-09-03\\2025-09-03.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Salima\\OneDrive - HTL Spengergasse\\Desktop\\3AHWII\\SWP\\SWP-2025-26\\2025-09-03\\2025-09-03.csproj": {
+    "C:\\Users\\Salima\\OneDrive - HTL Spengergasse\\Desktop\\3AHWII\\SWP-2025-26\\2025-09-03\\2025-09-03.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Salima\\OneDrive - HTL Spengergasse\\Desktop\\3AHWII\\SWP\\SWP-2025-26\\2025-09-03\\2025-09-03.csproj",
+        "projectUniqueName": "C:\\Users\\Salima\\OneDrive - HTL Spengergasse\\Desktop\\3AHWII\\SWP-2025-26\\2025-09-03\\2025-09-03.csproj",
         "projectName": "2025-09-03",
-        "projectPath": "C:\\Users\\Salima\\OneDrive - HTL Spengergasse\\Desktop\\3AHWII\\SWP\\SWP-2025-26\\2025-09-03\\2025-09-03.csproj",
+        "projectPath": "C:\\Users\\Salima\\OneDrive - HTL Spengergasse\\Desktop\\3AHWII\\SWP-2025-26\\2025-09-03\\2025-09-03.csproj",
         "packagesPath": "C:\\Users\\Salima\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Salima\\OneDrive - HTL Spengergasse\\Desktop\\3AHWII\\SWP\\SWP-2025-26\\2025-09-03\\obj\\",
+        "outputPath": "C:\\Users\\Salima\\OneDrive - HTL Spengergasse\\Desktop\\3AHWII\\SWP-2025-26\\2025-09-03\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Salima\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -43,6 +43,16 @@
       "frameworks": {
         "net9.0": {
           "targetAlias": "net9.0",
+          "dependencies": {
+            "MSTest": {
+              "target": "Package",
+              "version": "[3.6.4, )"
+            },
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[17.12.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

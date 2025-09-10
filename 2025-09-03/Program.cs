@@ -1,4 +1,4 @@
-﻿using System;
+﻿﻿using System;
 
 class Program
 {
@@ -93,7 +93,3 @@ class Fraction
         return a;
     }
 }
-
-// See https://aka.ms/new-console-template for more information
-//Console.WriteLine("Hello, World!");
-
