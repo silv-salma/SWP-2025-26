@@ -1,0 +1,9 @@
+Bruch.cs Code:
+
+Klassenname sollte man groß schreiben
+"this" bezieht sich auf das aktuelle Objekt
+int. ist eine Klasse, int.Parse ist eine statische Methode weil wir kein int Objekt anlegen müssen
+
+cs:  return $"{this.zaehler}/{this.nenner}"; 
+js: return `ich bin ein bruch: ${this.zaehler}/${this.nenner}`;
+Unterschied: " bzw. ' und `
