@@ -10,13 +10,8 @@ Class ↔ Objekt
 
 Klasse ist der Bauplan für ein Objekt
 Constructer (=Name der Klasse)
-Objekt hat nicht nur Funktionen sondern auch Attribute (die definiert man in der Klasse)
-KLassenname sollte man groß schreiben
+Objket hat nicht nur Funktionen sondern auch Attribute (die definiert man in der Klasse)
 
-Im Code:
-this bezieht sich auf das aktuelle Objekt
-int. ist eine Klasse, int.Parse ist eine statische Methode weil wir kein int Objekt anlegen müssen
+static number math.random() -> statische Klasse
 
-in cs: return $"{this.zaehler}/{this.nenner}";
-in javascript: return `ich bin ein bruch: ${this.zaehler}/${this.nenner}`;
-Unterschied zwischen ' bzw. " und `
+Manche Sachen kann man schützen vor Zugriff aus anderen Klassen (private)
