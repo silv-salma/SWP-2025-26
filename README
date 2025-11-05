@@ -1,7 +1,13 @@
 Dotnet:
 • CPU die sehr viel kann und virtuell ist
 • Von Microsoft
+"dotnet.exe"
 
 Prisma...Model
 SQL...Table
+
+Class ↔ Objekt
+
 Klasse ist der Bauplan für ein Objekt
+Constructer (=Name der Klasse)
+Objket hat nicht nur Funktionen sondern auch Attribute (die definiert man in der Klasse)
