@@ -1,7 +1,7 @@
 Dotnet:
 • CPU die sehr viel kann und virtuell ist
 • Von Microsoft
-"dotnet.exe"
+dotnet.exe
 
 Prisma...Model
 SQL...Table
@@ -10,4 +10,13 @@ Class ↔ Objekt
 
 Klasse ist der Bauplan für ein Objekt
 Constructer (=Name der Klasse)
-Objket hat nicht nur Funktionen sondern auch Attribute (die definiert man in der Klasse)
+Objekt hat nicht nur Funktionen sondern auch Attribute (die definiert man in der Klasse)
+KLassenname sollte man groß schreiben
+
+Im Code:
+this bezieht sich auf das aktuelle Objekt
+int. ist eine Klasse, int.Parse ist eine statische Methode weil wir kein int Objekt anlegen müssen
+
+in cs: return $"{this.zaehler}/{this.nenner}";
+in javascript: return `ich bin ein bruch: ${this.zaehler}/${this.nenner}`;
+Unterschied zwischen ' bzw. " und `
