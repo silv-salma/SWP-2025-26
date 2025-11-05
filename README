@@ -11,3 +11,7 @@ Class ↔ Objekt
 Klasse ist der Bauplan für ein Objekt
 Constructer (=Name der Klasse)
 Objket hat nicht nur Funktionen sondern auch Attribute (die definiert man in der Klasse)
+
+static number math.random() -> statische Klasse
+
+Manche Sachen kann man schützen vor Zugriff aus anderen Klassen (private)
