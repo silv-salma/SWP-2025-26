@@ -15,3 +15,5 @@ Objket hat nicht nur Funktionen sondern auch Attribute (die definiert man in der
 static number math.random() -> statische Klasse
 
 Manche Sachen kann man schützen vor Zugriff aus anderen Klassen (private)
+
+Klassenname sollte man groß schreiben
