@@ -1,13 +1,13 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
-﻿using System.Collections.Specialized;
+using System.Collections.Specialized;
 
 class Program
 {
 
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello, World als Klasse!");
+        Console.WriteLine("Hello World, als Klasse!(blub blub blub)");
         foreach (string s in args)
         {
             Console.WriteLine(s);
@@ -15,7 +15,7 @@ class Program
         Bruch b1 = new Bruch(args[0]);
         Bruch b2 = new Bruch(args[1]);
         Bruch b3 = b1.addiere(b2);
-        Console.WriteLine("Ergebnis: " + b3.toString());
+        Console.WriteLine("Ergebnis: " + b3.ToString());
 
-}
+    }
 }
