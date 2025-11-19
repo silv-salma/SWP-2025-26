@@ -1,0 +1,28 @@
+/*
+
+Constructor:
+
+Ein Konstruktor ist eine spezielle Methode, die zur Initialisierung von Objekten verwendet wird. 
+Der Vorteil eines Konstruktors besteht darin, dass er aufgerufen wird, wenn ein Objekt einer Klasse erzeugt wird.
+
+Beachten Sie, dass der Konstruktorname mit dem Klassennamen übereinstimmen muss und keinen Rückgabetyp (wie void oder int) haben darf.
+
+Der Konstruktor wird beim Erstellen des Objekts aufgerufen.
+
+Alle Klassen besitzen standardmäßig Konstruktoren: Wenn Sie KEINEN Klassenkonstruktor selbst erstellen, generiert C# automatisch einen. 
+In diesem Fall können Sie jedoch keine Anfangswerte für Felder festlegen.
+
+Konstruktoren sparen Zeit! Sehen Sie sich das letzte Beispiel auf dieser Seite an, um zu verstehen, warum.
+
+
+
+this:
+Das this-Schlüsselwort bezieht sich auf die aktuelle Instanz der Klasse und wird häufig verwendet, um auf Mitglieder (Felder, Methoden) der aktuellen Klasse zu verweisen. 
+
+Es wird oft in Konstruktoren und Methoden verwendet, um Namenskonflikte zwischen Klassenmitgliedern und Parametern zu lösen.
+
+ermöglicht innerhalb derselben Klasse einen Konstruktor mit einer anderen Signatur als einen anderen aufzurufen.
+
+this() → calls another constructor in the same class
+
+*/
