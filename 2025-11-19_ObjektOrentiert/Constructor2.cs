@@ -18,7 +18,7 @@ class Program
     }
 }
 */
-
+//mit dem Konstruktor wird der Code kürzer
 
 class Program
 {
