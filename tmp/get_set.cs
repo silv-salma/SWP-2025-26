@@ -9,7 +9,7 @@ class Person
     }
 }
 
-class Program
+class Name
 {
     static void Main(string[] args)
     {

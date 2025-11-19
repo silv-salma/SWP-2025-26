@@ -1,0 +1,16 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": ".NET Launch (console) BruchDebugApp",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "build",
+      "program": "${workspaceFolder}/BruchDebugApp/bin/Debug/net9.0/BruchDebugApp.dll",
+      "args": [],
+      "cwd": "${workspaceFolder}/BruchDebugApp",
+      "console": "integratedTerminal",
+      "stopAtEntry": false
+    }
+  ]
+}
