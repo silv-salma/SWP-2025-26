@@ -25,4 +25,13 @@ ermöglicht innerhalb derselben Klasse einen Konstruktor mit einer anderen Signa
 
 this() → calls another constructor in the same class
 
+
+
+
+
+get und set:
+Eigenschaften (Properties) in C# sind spezielle Methoden, die den Zugriff auf private Felder einer Klasse ermöglichen.
+Private Variablen sind nur innerhalb derselben Klasse zugänglich (Klassen außerhalb dieser Klasse haben keinen Zugriff darauf). 
+Manchmal ist es jedoch notwendig, auf sie zuzugreifen – und dies ist mit Eigenschaften möglich.
+Eine Eigenschaft ist eine Kombination aus Variable und Methode und verfügt über zwei Methoden: eine Getter- und eine Setter-Methode.
 */
