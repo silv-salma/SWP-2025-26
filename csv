@@ -1,0 +1,27 @@
+CSV
+ einfachen Datenaustausch zwischen verschiedenen Programmen.
+ Eine Textdatei, in der jede Zeile eine Datenzeile darstellt
+ und Spalten durch ein einheitliches Trennzeichen (Delimiter) getrennt sind.
+  
+-Separators (2 Stück)
+  wird verwendet um Datenfelder (Spalten) zu trennen z.B.: ; oder , oder Tabulator
+  , : einzelne Datenfelder werden voneinander getrennt, in einer Textdatei
+  ; : einzelne Datenfelder INNERHALB einer Zeile werden voneinander getrennt, in einer Textdatei
+(Achtung! es gibt regionale Unterschiede)
+
+-Delimiter
+trennt einzelne Werte in einer CSV-Datei
+spezifische Zeichen die verwendet werden um einzelen Datenfelder in einer Textdatei zu trennen
+Vorteil: Daten werden strukturiert ausgegeben
+
+-Encoding (Zeichenkodierung)
+heutzutage UTF-8, aber manche Programme nutzen noch ältere Versionen (kann zu Problemen führen)
+es wird festgelegt wie Zeichen (Buchstaben, Zahlen, Symbole) in binäre Daten umgewandelt werden
+
+-Quotation
+gruppiert Daten die Kommas, Zeilenbrüche oder Anführungszeichen enthalten
+
+-Dialekt
+beschreibt die Formatierungsregeln die in einer CSV-Datei verwendet werden
+
+-C# CSV in/out
