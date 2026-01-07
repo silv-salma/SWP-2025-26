@@ -1,4 +1,4 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.Vis.TestTools.UnitTesting;
 
 namespace BruchTests
 {
