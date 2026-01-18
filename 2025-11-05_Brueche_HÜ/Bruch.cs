@@ -88,4 +88,8 @@ class Bruch
 
         // JS: return `ich bin ein bruch: ${this.zaehler}/${this.nenner}`;
     }
+    public string ToStringBruch()
+    {
+        return $"{this.zaehler}/{this.nenner}";
+    }
 }

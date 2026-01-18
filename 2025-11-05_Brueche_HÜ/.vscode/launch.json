@@ -1,28 +1,16 @@
 {
-    // Use IntelliSense to learn about possible attributes.
-    // Hover to view descriptions of existing attributes.
-    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
-    "version": "0.2.0",
-    "configurations": [
-       {
-            "name": ".NET Core Attach",
-            "type": "coreclr",
-            "request": "attach"
-            
-        } ,
-        {
-   
-            "name": ".NET Core Launch (console)",
-            "type": "coreclr",
-            "request": "launch",
-            "preLaunchTask": "build",
-            "program": "${workspaceFolder}/bin/Debug/net8.0/${workspaceFolderBasename}.dll",
-            "cwd": "${workspaceFolder}",
-            "console": "integratedTerminal",
-            "stopAtEntry": false,
-            "justMyCode": true
-        }
-
-    ]
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": ".NET Launch (console) 2025-11-05_Brueche",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "build",
+      "program": "${workspaceFolder}/2025-11-05_Brueche_HÜ/bin/Debug/net9.0/2025-11-05_Brueche.dll",
+      "args": ["1/2", "3/4"],
+      "cwd": "${workspaceFolder}/2025-11-05_Brueche_HÜ",
+      "console": "integratedTerminal",
+      "stopAtEntry": false
+    }
+  ]
 }
-
