@@ -1,0 +1,22 @@
+Hausübung: Schnittstellen für ein Inventarsystem
+
+Aufgabenstellung: Entwickle ein kleines Konsolenprogramm für ein Inventarsystem. Es gibt verschiedene Gegenstände, die alle einen Namen haben und Informationen ausgeben können.
+
+    Erstelle ein Interface IInventarGegenstand mit folgenden Elementen:
+        Property string Name { get; }
+        Methode string BeschreibeDich();
+
+    Erstelle zwei Klassen:
+        Waffe: Hat zusätzlich ein int Schaden.
+        Heiltrank: Hat zusätzlich ein int Heilwert.
+
+    Implementiere das Interface in beiden Klassen. Die Methode BeschreibeDich() soll einen aussagekräftigen String zurückgeben (z.B.: "Ich bin das Schwert und mache 15 Schaden.").
+
+    Main-Methode:
+        Erstelle eine List<IInventarGegenstand>.
+        Füge eine Waffe und einen Heiltrank hinzu.
+        Iteriere mit einer foreach-Schleife durch die Liste und rufe für jeden Gegenstand BeschreibeDich() auf.
+
+Lernziel: Verstehen, dass man Objekte unterschiedlicher Klassen in einer gemeinsamen Liste speichern kann, solange sie das gleiche Interface implementieren.
+
+Das ist überschaubar, ohne viel "Boilerplate"-Code, und zeigt den Nutzen der Abstraktion direkt in der Praxis. Passt das für dein Niveau?
