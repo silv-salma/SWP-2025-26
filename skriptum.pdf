@@ -128007,3 +128007,193 @@ trailer
 startxref
 1786109
 %%EOF
+91 0 obj
+<< /Type /Page /Parent 3 0 R /MediaBox [0 0 595.28 841.89] /CropBox [0 0 595.28 841.89] /BleedBox [0 0 595.28 841.89] /TrimBox [0 0 595.28 841.89] /ArtBox [0 0 595.28 841.89] /Contents 90 0 R /Resources << /ProcSet [/PDF /Text /ImageB /ImageC /ImageI] /Font << /F5.0 29 0 R /F1.0 20 0 R>> /XObject << /Stamp2 511 0 R /I15 512 0 R /Stamp4 515 0 R>>>> /Annots [568 0 R]>>
+endobj
+117 0 obj
+<< /Type /Page /Parent 3 0 R /MediaBox [0 0 595.28 841.89] /CropBox [0 0 595.28 841.89] /BleedBox [0 0 595.28 841.89] /TrimBox [0 0 595.28 841.89] /ArtBox [0 0 595.28 841.89] /Contents 116 0 R /Resources << /ProcSet [/PDF /Text /ImageB /ImageC /ImageI] /Font << /F5.0 29 0 R /F3.0 19 0 R /F1.0 20 0 R>> /XObject << /Stamp1 510 0 R /I22 512 0 R /Stamp3 514 0 R>>>> /Annots [570 0 R 571 0 R 572 0 R 573 0 R 574 0 R 575 0 R]>>
+endobj
+121 0 obj
+<< /Type /Page /Parent 3 0 R /MediaBox [0 0 595.28 841.89] /CropBox [0 0 595.28 841.89] /BleedBox [0 0 595.28 841.89] /TrimBox [0 0 595.28 841.89] /ArtBox [0 0 595.28 841.89] /Contents 120 0 R /Resources << /ProcSet [/PDF /Text /ImageB /ImageC /ImageI] /Font << /F3.0 19 0 R /F1.0 20 0 R /F6.0 100 0 R /F5.0 29 0 R>> /XObject << /Stamp2 511 0 R /I23 512 0 R /Stamp4 515 0 R>>>> /Annots [577 0 R 578 0 R]>>
+endobj
+567 0 obj
+<< /BaseFont /Helvetica /Type /Font /Subtype /Type1 /Encoding /WinAnsiEncoding>>
+endobj
+568 0 obj
+<< /Type /Annot /Subtype /FreeText /CreationDate (D:20260318095314) /Rect [284.39998626708984 709.4400049591063 537.9374771118164 756.3400102996825] /DA (/Helv 10 Tf 0 g) /Contents (şÿ w e n n   m a n   w a s   d i v i d i e r t   o d e r   m u l i t p l i z i e r t   u n d   d i e   W e r t e   \n u n t e r s c h i e d l i c h e   D a t e n t y p e n   h a b e n   w i r d   d e r   D a t e n t y p \n   m i t   d e r   h ö h e r e n   P r ä z i s s i o n   g e n o m m e n) /F 4 /Border [0 0 0] /Rotate 0 /AP << /N 579 0 R>>>>
+endobj
+569 0 obj
+<< /BaseFont /Helvetica /Type /Font /Subtype /Type1 /Encoding /WinAnsiEncoding>>
+endobj
+570 0 obj
+<< /Type /Annot /Subtype /FreeText /CreationDate (D:20260318095314) /Rect [208.20000457763672 202.89001525878905 401.3375015258789 222.79000915527342] /DA (/Helv 10 Tf 1 0 0 rg) /Contents (strings sind Objekte keine Basis Operator!) /F 4 /Border [0 0 0] /Rotate 0 /AP << /N 580 0 R>>>>
+endobj
+571 0 obj
+<< /Type /Annot /Subtype /FreeText /CreationDate (D:20260318095314) /Rect [362.4000091552735 509.4900061035157 513.3125038146974 529.3900000000001] /DA (/Helv 10 Tf 1 0 0 rg) /Contents (şÿ ü b e r p r ü f t   o b   e s   d a s   s e l b e   O b j e k t) /F 4 /Border [0 0 0] /Rotate 0 /AP << /N 581 0 R>>>>
+endobj
+572 0 obj
+<< /Type /Annot /Subtype /FreeText /CreationDate (D:20260318095314) /Rect [406.80006408691406 480.9899946594238 593.3125648498535 514.39] /DA (/Helv 10 Tf 1 0 0 rg) /Contents (gleicht das a dem b, \nverschiedene Objekte aber gleichen sich) /F 4 /Border [0 0 0] /Rotate 0 /AP << /N 582 0 R>>>>
+endobj
+573 0 obj
+<< /Type /Annot /Subtype /FreeText /CreationDate (D:20260318095314) /Rect [208.20000457763672 180.0899855041505 455.2375030517578 199.98999084472666] /DA (/Helv 10 Tf 1 0 0 rg) /Contents (şÿ s t r i n g s   u n t e r s t ü t z t   a u c h   g r ö ß e r   g l e i c h   u s w .   O p e r a t o r e n) /F 4 /Border [0 0 0] /Rotate 0 /AP << /N 583 0 R>>>>
+endobj
+574 0 obj
+<< /Type /Annot /Subtype /FreeText /CreationDate (D:20260318095314) /Rect [207.59999084472656 156.68997634887694 505.82498931884766 176.5899816894531] /DA (/Helv 10 Tf 1 0 0 rg) /Contents (mit Strings kann man auch eine alphabetische Sortierung machen) /F 4 /Border [0 0 0] /Rotate 0 /AP << /N 584 0 R>>>>
+endobj
+575 0 obj
+<< /Type /Annot /Subtype /FreeText /CreationDate (D:20260318095314) /Rect [55.200004577636655 475.88999237060546 319.4625091552734 495.7899977111816] /DA (/Helv 10 Tf 1 0 0 rg) /Contents (beim Vergleichen von Strings immer Equals nehmen -Graf) /F 4 /Border [0 0 0] /Rotate 0 /AP << /N 585 0 R>>>>
+endobj
+576 0 obj
+<< /BaseFont /Helvetica /Type /Font /Subtype /Type1 /Encoding /WinAnsiEncoding>>
+endobj
+577 0 obj
+<< /Type /Annot /Subtype /FreeText /CreationDate (D:20260318095314) /Rect [226.79999542236328 707.6399923706055 367.72499084472656 727.5399977111816] /DA (/Helv 10 Tf 1 0 0 rg) /Contents (şÿ K o p f   u n d   F u ß g e s t e u e r t e   A r t e n) /F 4 /Border [0 0 0] /Rotate 0 /AP << /N 586 0 R>>>>
+endobj
+578 0 obj
+<< /Type /Annot /Subtype /FreeText /CreationDate (D:20260318095314) /Rect [183.5999679565431 499.43998779296885 287.83747100830095 519.3399816894532] /DA (/Helv 10 Tf 1 0 0 rg) /Contents (şÿ F u ß g e s t e u r t e   S c h l e i f e) /F 4 /Border [0 0 0] /Rotate 0 /AP << /N 587 0 R>>>>
+endobj
+579 0 obj
+<< /FormType 1 /Subtype /Form /Type /XObject /BBox [284.39998626708984 709.4400049591063 537.9374771118164 756.3400102996825] /Resources << /Font << /Helv 567 0 R>>>> /Matrix [1 0 0 1 -284.39998626708984 -709.4400049591063] /Filter /FlateDecode /Length 246>> stream
+xœmÁNÄ †ï}Š9êÁ:P p5šxÔ¤‰çZÆ-›BWJ·qŸ×gğì¤Æ“†0fşÿûy¯ ŸŸ:ÄJZU7Î9k¤iÑ:« EW+…ˆÊi'Ğ4 uSë¦U­R­4Ú€2µc	êF¡nh!¼@ªîº
+áÀ·àö‘¦3îßşbÛQ tÎX©¡ópµQJû[¿€çàå³§qB9Má²ÖäYÀ±ü ¸†îÈ±7‚ÿºƒÖT(/ÃÈOa	îûB©|œ(ÁØ¿rİBfs7CÙã×H™-Oùó–%Ì	”æ)í¦‡®zş¡b
+endstream
+endobj
+580 0 obj
+<< /FormType 1 /Subtype /Form /Type /XObject /BBox [208.20000457763672 202.89001525878905 401.3375015258789 222.79000915527342] /Resources << /Font << /Helv 569 0 R>>>> /Matrix [1 0 0 1 -208.20000457763672 -202.89001525878905] /Length 221>> stream
+q
+1 0 0 1 0 0 cm
+208.20000457763672 202.89001525878905 193.1374969482422 19.899993896484375 re W n
+BT
+1 0 0 rg
+0 Tc /Helv 10 Tf
+208.20000457763672 212.79000915527342 Td (strings sind Objekte keine Basis Operator!) Tj
+ET
+Q
+endstream
+endobj
+581 0 obj
+<< /FormType 1 /Subtype /Form /Type /XObject /BBox [362.4000091552735 509.4900061035157 513.3125038146974 529.3900000000001] /Resources << /Font << /Helv 569 0 R>>>> /Matrix [1 0 0 1 -362.4000091552735 -509.4900061035157] /Length 208>> stream
+q
+1 0 0 1 0 0 cm
+362.4000091552735 509.4900061035157 150.91249465942388 19.899993896484375 re W n
+BT
+1 0 0 rg
+0 Tc /Helv 10 Tf
+362.4000091552735 519.3900000000001 Td (überprüft ob es das selbe Objekt) Tj
+ET
+Q
+endstream
+endobj
+582 0 obj
+<< /FormType 1 /Subtype /Form /Type /XObject /BBox [406.80006408691406 480.9899946594238 593.3125648498535 514.39] /Resources << /Font << /Helv 569 0 R>>>> /Matrix [1 0 0 1 -406.80006408691406 -480.9899946594238] /Length 243>> stream
+q
+1 0 0 1 0 0 cm
+406.80006408691406 480.9899946594238 186.51250076293945 33.40000534057617 re W n
+BT
+1 0 0 rg
+0 Tc /Helv 10 Tf
+406.80006408691406 504.39 Td (gleicht das a dem b, ) Tj
+0 -13.5 Td (verschiedene Objekte aber gleichen sich) Tj
+ET
+Q
+endstream
+endobj
+583 0 obj
+<< /FormType 1 /Subtype /Form /Type /XObject /BBox [208.20000457763672 180.0899855041505 455.2375030517578 199.98999084472666] /Resources << /Font << /Helv 569 0 R>>>> /Matrix [1 0 0 1 -208.20000457763672 -180.0899855041505] /Length 232>> stream
+q
+1 0 0 1 0 0 cm
+208.20000457763672 180.0899855041505 247.0374984741211 19.900005340576172 re W n
+BT
+1 0 0 rg
+0 Tc /Helv 10 Tf
+208.20000457763672 189.98999084472666 Td (strings unterstützt auch größer gleich usw. Operatoren) Tj
+ET
+Q
+endstream
+endobj
+584 0 obj
+<< /FormType 1 /Subtype /Form /Type /XObject /BBox [207.59999084472656 156.68997634887694 505.82498931884766 176.5899816894531] /Resources << /Font << /Helv 569 0 R>>>> /Matrix [1 0 0 1 -207.59999084472656 -156.68997634887694] /Length 240>> stream
+q
+1 0 0 1 0 0 cm
+207.59999084472656 156.68997634887694 298.2249984741211 19.900005340576172 re W n
+BT
+1 0 0 rg
+0 Tc /Helv 10 Tf
+207.59999084472656 166.5899816894531 Td (mit Strings kann man auch eine alphabetische Sortierung machen) Tj
+ET
+Q
+endstream
+endobj
+585 0 obj
+<< /FormType 1 /Subtype /Form /Type /XObject /BBox [55.200004577636655 475.88999237060546 319.4625091552734 495.7899977111816] /Resources << /Font << /Helv 569 0 R>>>> /Matrix [1 0 0 1 -55.200004577636655 -475.88999237060546] /Length 232>> stream
+q
+1 0 0 1 0 0 cm
+55.200004577636655 475.88999237060546 264.2625045776367 19.900005340576172 re W n
+BT
+1 0 0 rg
+0 Tc /Helv 10 Tf
+55.200004577636655 485.7899977111816 Td (beim Vergleichen von Strings immer Equals nehmen -Graf) Tj
+ET
+Q
+endstream
+endobj
+586 0 obj
+<< /FormType 1 /Subtype /Form /Type /XObject /BBox [226.79999542236328 707.6399923706055 367.72499084472656 727.5399977111816] /Resources << /Font << /Helv 576 0 R>>>> /Matrix [1 0 0 1 -226.79999542236328 -707.6399923706055] /Length 206>> stream
+q
+1 0 0 1 0 0 cm
+226.79999542236328 707.6399923706055 140.92499542236328 19.900005340576172 re W n
+BT
+1 0 0 rg
+0 Tc /Helv 10 Tf
+226.79999542236328 717.5399977111816 Td (Kopf und Fußgesteuerte Arten) Tj
+ET
+Q
+endstream
+endobj
+587 0 obj
+<< /FormType 1 /Subtype /Form /Type /XObject /BBox [183.5999679565431 499.43998779296885 287.83747100830095 519.3399816894532] /Resources << /Font << /Helv 576 0 R>>>> /Matrix [1 0 0 1 -183.5999679565431 -499.43998779296885] /Length 198>> stream
+q
+1 0 0 1 0 0 cm
+183.5999679565431 499.43998779296885 104.23750305175784 19.899993896484375 re W n
+BT
+1 0 0 rg
+0 Tc /Helv 10 Tf
+183.5999679565431 509.3399816894532 Td (Fußgesteurte Schleife) Tj
+ET
+Q
+endstream
+endobj
+xref
+91 1
+0001786532 00000 n
+117 1
+0001786918 00000 n
+121 1
+0001787359 00000 n
+567 21
+0001787782 00000 n
+0001787880 00000 n
+0001788428 00000 n
+0001788526 00000 n
+0001788829 00000 n
+0001789153 00000 n
+0001789463 00000 n
+0001789833 00000 n
+0001790156 00000 n
+0001790470 00000 n
+0001790568 00000 n
+0001790886 00000 n
+0001791190 00000 n
+0001791730 00000 n
+0001792227 00000 n
+0001792706 00000 n
+0001793211 00000 n
+0001793717 00000 n
+0001794233 00000 n
+0001794740 00000 n
+0001795220 00000 n
+trailer
+<< /Prev 1786109 /Size 588 /Root 2 0 R /Info 1 0 R>>
+startxref
+1795692
+%%EOF
