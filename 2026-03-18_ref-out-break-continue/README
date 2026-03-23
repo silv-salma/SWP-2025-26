@@ -1,3 +1,4 @@
+/*
 Hausübung vom 18.März 2026
 Thema: ref/out, Strings und Schleifen mit break/continue
 
@@ -43,3 +44,4 @@ Lernziele:
     break zum vorzeitigen Beenden von Schleifen einsetzen
     continue zum Überspringen von Iterationen verwenden
     Unterschied zwischen == und .Equals() bei Strings kennenlernen
+*/
