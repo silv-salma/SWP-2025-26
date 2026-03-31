@@ -1,0 +1,40 @@
+/*
+Hausübung vom 25.März 2026
+Übung: "Lagerverwaltung"(Dauer: ca. 60 Minuten)
+
+Ziel: Implementierung einer Konsolenanwendung zur Verwaltung eines Ersatzteillagers.
+Szenario
+
+Du sollst ein System schreiben, um Ersatzteile in einem Lager zu verwalten. Du musst dabei die effizienteste Datenstruktur für den jeweiligen Zweck wählen.
+Schritt 1: Array(Das feste Regal)
+
+    Erstelle ein string[] namens regalPlatze mit einer festen Größe von 5.
+    Initialisiere es mit 5 verschiedenen Ersatzteilnamen.
+    Sortiere das Array alphabetisch.
+    Gib alle Elemente des Arrays untereinander in der Konsole aus.
+
+Schritt 2: List(Die dynamische Einlagerung)
+
+    Erstelle eine List<string> namens eingangskorb für Ersatzteile, die neu geliefert wurden.
+    Füge 4 Teile dynamisch hinzu (z. B. "Schraube", "Mutter", "Bolzen", "Feder").
+    Entferne das zweite Element aus der Liste.
+    Überprüfe mit einer if-Abfrage, ob das Element "Schraube" noch in der Liste enthalten ist.
+    Gib die Anzahl der verbleibenden Teile in der Liste aus.
+
+Schritt 3: Dictionary(Das Such - System)
+
+    Erstelle ein Dictionary<int, string>, das eine Artikelnummer (Key) mit einem Ersatzteilnamen (Value) verknüpft.
+    Füge 3 Paare hinzu (z. B. 101: "Motor", 102: "Getriebe", 103: "Reifen").
+    Schreibe eine Methode FindArtikel(int id), die das Dictionary und eine ID entgegennimmt.
+    Nutze TryGetValue, um sicher zu prüfen, ob die ID existiert:
+        Wenn ja: Gib den Namen des Teils aus.
+        Wenn nein: Gib eine Fehlermeldung aus, dass die ID unbekannt ist.
+    Zusatzaufgabe (optional): Iteriere über das Dictionary und gib alle Einträge im Format ID: [ID], Teil: [Name] aus.
+
+Schritt 4: Abschluss
+
+    Überprüfe deinen Code auf saubere Formatierung.
+    Stelle sicher, dass alle Namespaces korrekt eingebunden sind (using System.Collections.Generic;, using System.Linq;).
+
+Der vollständige Code in einer einzigen Datei (Program.cs), der beim Ausführen alle Schritte nacheinander in der Konsole loggt.
+*/

@@ -1,0 +1,85 @@
+using System;
+using System.Collections.Generic;
+class Program
+{
+    static void Main(string[] args)
+    {
+        Console.WriteLine("=== Schritt 1: Array (Das feste Regal) ===");
+
+        // Array erstellen und initialisieren
+        string[] regalPlaetze = { "Motor", "Reifen", "Bremse", "Kupplung", "Filter" };
+
+        // Alphabetisch sortieren
+        Array.Sort(regalPlaetze);
+
+        // Ausgabe
+        foreach (var teil in regalPlaetze)
+        {
+            Console.WriteLine(teil);
+        }
+
+        Console.WriteLine("\n=== Schritt 2: List (Die dynamische Einlagerung) ===");
+
+        // Liste erstellen
+        List<string> eingangskorb = new List<string>();
+
+        // Elemente hinzufügen
+        eingangskorb.Add("Schraube");
+        eingangskorb.Add("Mutter");
+        eingangskorb.Add("Bolzen");
+        eingangskorb.Add("Feder");
+
+        // Zweites Element entfernen (Index 1)
+        eingangskorb.RemoveAt(1);
+
+        // Prüfen, ob "Schraube" enthalten ist
+        if (eingangskorb.Contains("Schraube"))
+        {
+            Console.WriteLine("Schraube ist noch enthalten.");
+        }
+        else
+        {
+            Console.WriteLine("Schraube ist nicht mehr enthalten.");
+        }
+
+        // Anzahl ausgeben
+        Console.WriteLine("Anzahl der Teile im Eingangskorb: " + eingangskorb.Count);
+
+        Console.WriteLine("\n=== Schritt 3: Dictionary (Das Such-System) ===");
+
+        // Dictionary erstellen
+        Dictionary<int, string> lager = new Dictionary<int, string>();
+
+        // Werte hinzufügen
+        lager.Add(101, "Motor");
+        lager.Add(102, "Getriebe");
+        lager.Add(103, "Reifen");
+
+        // Methode aufrufen
+        FindArtikel(lager, 102);
+        FindArtikel(lager, 999); // Test für unbekannte ID
+
+        Console.WriteLine("\nAlle Einträge im Dictionary:");
+
+        // Zusatzaufgabe: Iteration
+        foreach (var eintrag in lager)
+        {
+            Console.WriteLine($"ID: {eintrag.Key}, Teil: {eintrag.Value}");
+        }
+
+        Console.WriteLine("\n=== Programm beendet ===");
+    }
+
+    // Methode zum Suchen eines Artikels
+    static void FindArtikel(Dictionary<int, string> lager, int id)
+    {
+        if (lager.TryGetValue(id, out string teil))
+        {
+            Console.WriteLine($"Gefunden: {teil}");
+        }
+        else
+        {
+            Console.WriteLine($"Fehler: Artikel mit ID {id} ist unbekannt.");
+        }
+    }
+}
