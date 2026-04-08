@@ -1,0 +1,33 @@
+adb -> advanced debug bridge
+Inference (AI), provider
+
+Wo bekomme ich 
+    gratis Inference?
+    "günstig"
+
+
+
+### Openrouter
+
+1. Llama Modell
+Ein großes KI-Modell von Meta (70 Milliarden Parameter).
+**URL:**
+(https://openrouter.ai/meta-llama/llama-3.1-70b-instruct)
+---
+ 2. DeepSeek Modell
+Ein spezialisiertes KI-Modell für logisches Denken.
+**URL:**
+(https://openrouter.ai/deepseek/deepseek-r1)
+---
+3. Qwen Coding Modell
+**URL:**
+(https://openrouter.ai/qwen/qwen3-coder)
+---
+4. Gemini Modell (Google)
+**URL:**
+(https://openrouter.ai/google/gemini-2.0-flash-exp)
+---
+5. Mistral Modell
+Ein effizientes KI-Modell von Mistral.
+**URL:**
+(https://openrouter.ai/mistralai/mistral-nemo)
