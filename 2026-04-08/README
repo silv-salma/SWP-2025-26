@@ -31,3 +31,124 @@ Ein spezialisiertes KI-Modell für logisches Denken.
 Ein effizientes KI-Modell von Mistral.
 **URL:**
 (https://openrouter.ai/mistralai/mistral-nemo)
+
+-------------------------------------------------------------------------
+
+ 1. Llama Modell
+
+ `meta-llama/llama-3.1-70b-instruct:free`
+
+**Was ist das?**
+Ein großes KI-Modell von Meta (70 Milliarden Parameter).
+
+**Was macht es?**
+
+* beantwortet Fragen
+* schreibt Texte
+* hilft bei Hausaufgaben
+
+**Was kann es gut?**
+
+* sehr gute Antworten (fast GPT-4 Niveau) ([TeamDay.ai][1])
+* gut für allgemeine Aufgaben
+
+**URL:**
+[https://openrouter.ai/meta-llama/llama-3.1-70b-instruct](https://openrouter.ai/meta-llama/llama-3.1-70b-instruct)
+
+---
+
+ 2. DeepSeek Modell
+
+ `deepseek/deepseek-r1:free`
+
+**Was ist das?**
+Ein spezialisiertes KI-Modell für logisches Denken.
+
+**Was macht es?**
+
+* löst Matheaufgaben
+* analysiert Probleme
+* denkt Schritt für Schritt
+
+**Was kann es gut?**
+
+* sehr stark in **Reasoning (Denken)** ([docs.claude-mem.ai][2])
+* ideal für Schule (Mathe, Logik)
+
+**URL:**
+[https://openrouter.ai/deepseek/deepseek-r1](https://openrouter.ai/deepseek/deepseek-r1)
+
+---
+
+ 3. Qwen Coding Modell
+
+ `qwen/qwen3-coder:free`
+
+**Was ist das?**
+Ein KI-Modell speziell für Programmieren.
+
+**Was macht es?**
+
+* schreibt Code
+* erklärt Programme
+* hilft bei Fehlern
+
+**Was kann es gut?**
+
+* sehr gut für Coding-Projekte ([CostGoat][3])
+* unterstützt viele Sprachen
+
+**URL:**
+[https://openrouter.ai/qwen/qwen3-coder](https://openrouter.ai/qwen/qwen3-coder)
+
+---
+
+ 4. Gemini Modell (Google)
+
+ `google/gemini-2.0-flash-exp:free`
+
+**Was ist das?**
+Ein schnelles KI-Modell von Google.
+
+**Was macht es?**
+
+* beantwortet Fragen
+* verarbeitet auch lange Texte
+
+**Was kann es gut?**
+
+* extrem großer Kontext (bis 1 Mio Tokens) ([TeamDay.ai][1])
+* sehr schnell
+
+**URL:**
+[https://openrouter.ai/google/gemini-2.0-flash-exp](https://openrouter.ai/google/gemini-2.0-flash-exp)
+
+---
+
+ 5. Mistral Modell
+
+`mistralai/mistral-nemo:free`
+
+**Was ist das?**
+Ein effizientes KI-Modell von Mistral.
+
+**Was macht es?**
+
+* Chat
+* Texte schreiben
+
+**Was kann es gut?**
+
+* schnell & leicht
+* gut für einfache Aufgaben ([docs.claude-mem.ai][2])
+
+**URL:**
+[https://openrouter.ai/mistralai/mistral-nemo](https://openrouter.ai/mistralai/mistral-nemo)
+
+---
+
+  * Llama → Allround
+  * DeepSeek → Denken
+  * Qwen → Coding
+  * Gemini → Geschwindigkeit
+  * Mistral → leicht & schnell
