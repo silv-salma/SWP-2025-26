@@ -8,12 +8,24 @@
         <line x1="60" y1="180" x2="60" y2="20" stroke="black" stroke-width="3" />
         <line x1="60" y1="20" x2="140" y2="20" stroke="black" stroke-width="3" />
         <line x1="140" y1="20" x2="140" y2="40" stroke="black" stroke-width="3" />
-        <circle cx="140" cy="55" r="15" stroke="black" stroke-width="3" fill="@(wrongGuesses >= 1 ? "black" : "none")" />
-        <line x1="140" y1="70" x2="140" y2="110" stroke="black" stroke-width="3" />
-        <line x1="140" y1="80" x2="120" y2="100" stroke="black" stroke-width="3" />
-        <line x1="140" y1="80" x2="160" y2="100" stroke="black" stroke-width="3" />
-        <line x1="140" y1="110" x2="120" y2="140" stroke="black" stroke-width="3" />
-        <line x1="140" y1="110" x2="160" y2="140" stroke="black" stroke-width="3" />
+        @if (wrongGuesses >= 1)
+        {
+            <circle cx="140" cy="55" r="15" stroke="black" stroke-width="3" fill="none" />
+        }
+        @if (wrongGuesses >= 2)
+        {
+            <line x1="140" y1="70" x2="140" y2="110" stroke="black" stroke-width="3" />
+        }
+        @if (wrongGuesses >= 3)
+        {
+            <line x1="140" y1="80" x2="120" y2="100" stroke="black" stroke-width="3" />
+            <line x1="140" y1="80" x2="160" y2="100" stroke="black" stroke-width="3" />
+        }
+        @if (wrongGuesses >= 4)
+        {
+            <line x1="140" y1="110" x2="120" y2="140" stroke="black" stroke-width="3" />
+            <line x1="140" y1="110" x2="160" y2="140" stroke="black" stroke-width="3" />
+        }
     </svg>
 </div>
 
@@ -27,11 +39,12 @@
 <p class="wrong-guesses">Wrong guesses: @wrongGuesses / 6</p>
 
 <div class="keyboard mb-3">
-    @foreach (var letter in alphabet)
+    @for (int i = 0; i < alphabet.Length; i++)
     {
+        var letter = alphabet[i];
         <button class="key @(GetKeyClass(letter))"
                 @onclick="() => GuessLetter(letter)"
-                disabled="@(guessedLetters.Contains(letter) || gameOver)">
+                disabled="@(guessedLetters.Contains(letter) || wrongGuessedLetters.Contains(letter) || gameOver)">
             @letter
         </button>
     }
@@ -47,9 +60,9 @@
     private string[] words = { "BLAZOR", "HANGMAN", "PROGRAMMING", "DEVELOPER", "WEB", "DOTNET", "CODE", "APP", "GAME", "PLAYER" };
     private string word = "";
     private char[] displayWord = Array.Empty<char>();
-    private string[] alphabet = { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z" };
-    private HashSet<string> guessedLetters = new();
-    private HashSet<string> wrongGuessedLetters = new();
+    private char[] alphabet = { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z' };
+    private List<char> guessedLetters = new();
+    private List<char> wrongGuessedLetters = new();
     private int wrongGuesses = 0;
     private bool gameOver = false;
     private bool won = false;
@@ -65,15 +78,15 @@
         Random rnd = new();
         word = words[rnd.Next(words.Length)];
         displayWord = new string('_', word.Length).ToCharArray();
-        guessedLetters.Clear();
-        wrongGuessedLetters.Clear();
+        guessedLetters = new List<char>();
+        wrongGuessedLetters = new List<char>();
         wrongGuesses = 0;
         gameOver = false;
         won = false;
         resultMessage = "";
     }
 
-    private string GetKeyClass(string letter)
+    private string GetKeyClass(char letter)
     {
         if (wrongGuessedLetters.Contains(letter))
             return "wrong";
@@ -82,7 +95,7 @@
         return "";
     }
 
-    private void GuessLetter(string letter)
+    private void GuessLetter(char letter)
     {
         if (gameOver || guessedLetters.Contains(letter) || wrongGuessedLetters.Contains(letter))
             return;
@@ -92,8 +105,8 @@
             guessedLetters.Add(letter);
             for (int i = 0; i < word.Length; i++)
             {
-                if (word[i] == letter[0])
-                    displayWord[i] = letter[0];
+                if (word[i] == letter)
+                    displayWord[i] = letter;
             }
             if (!displayWord.Contains('_'))
             {
@@ -112,6 +125,7 @@
                 resultMessage = $"Game over! The word was: {word}";
             }
         }
+        StateHasChanged();
     }
 }
 
