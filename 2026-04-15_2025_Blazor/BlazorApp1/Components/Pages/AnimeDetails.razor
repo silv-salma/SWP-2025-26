@@ -1,0 +1,68 @@
+@page "/anime/details/{MalId:int}"
+@rendermode InteractiveServer
+@inject IJSRuntime JS
+@inject NavigationManager Nav
+
+<h3>Anime Details</h3>
+
+<a href="/anime" class="back-btn">Back to Lists</a>
+
+@if (anime != null)
+{
+    <div class="detail-page">
+        <img src="@anime.ImageUrl" alt="@anime.Title" class="detail-image" />
+        
+        <div class="detail-info">
+            <h2>@anime.Title</h2>
+            <p><strong>Episodes:</strong> @anime.Episodes</p>
+            <p><strong>Category:</strong> @anime.WatchStatus</p>
+            <p><strong>Rating:</strong> @anime.Rating/10</p>
+            
+            @if (!string.IsNullOrEmpty(anime.Details))
+            {
+                <div class="detail-section">
+                    <h4>Your Notes:</h4>
+                    <p>@anime.Details</p>
+                </div>
+            }
+            
+            @if (!string.IsNullOrEmpty(anime.Synopsis))
+            {
+                <div class="detail-section">
+                    <h4>Synopsis:</h4>
+                    <p>@anime.Synopsis</p>
+                </div>
+            }
+        </div>
+    </div>
+}
+else
+{
+    <p>Anime not found.</p>
+}
+
+@code {
+    [Parameter]
+    public int MalId { get; set; }
+    
+    private AnimeItem? anime = null;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await LoadFromStorage();
+        }
+    }
+
+    private async Task LoadFromStorage()
+    {
+        var saved = await JS.InvokeAsync<string>("localStorage.getItem", "animeList");
+        if (!string.IsNullOrEmpty(saved))
+        {
+            var allAnime = System.Text.Json.JsonSerializer.Deserialize<List<AnimeItem>>(saved) ?? new();
+            anime = allAnime.FirstOrDefault(a => a.MalId == MalId);
+            StateHasChanged();
+        }
+    }
+}

@@ -49,3 +49,242 @@ h1:focus {
 .darker-border-checkbox.form-check-input {
     border-color: #929292;
 }
+
+.search-section {
+    margin-bottom: 20px;
+}
+
+.search-section input {
+    padding: 8px;
+    width: 300px;
+    margin-right: 10px;
+}
+
+.search-section button {
+    padding: 8px 16px;
+    background-color: #1b6ec2;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.results-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.anime-card {
+    width: 150px;
+    cursor: pointer;
+    text-align: center;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.anime-card img {
+    width: 120px;
+    height: 180px;
+    object-fit: cover;
+}
+
+.anime-card p {
+    font-size: 14px;
+    margin: 5px 0 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.add-form {
+    border: 2px solid #1b6ec2;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    background-color: #f0f7ff;
+}
+
+.add-form img.preview-image {
+    width: 150px;
+    height: 220px;
+    object-fit: cover;
+    float: right;
+    margin-left: 20px;
+}
+
+.add-form label {
+    display: block;
+    margin-top: 10px;
+}
+
+.add-form select {
+    padding: 5px;
+    margin-left: 10px;
+}
+
+.add-form button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.add-form button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.category-section {
+    margin-bottom: 20px;
+}
+
+.category-section h5 {
+    background-color: #1b6ec2;
+    color: white;
+    padding: 8px;
+    margin-bottom: 10px;
+}
+
+.list-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.anime-item {
+    width: 150px;
+    text-align: center;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease;
+}
+
+.anime-item:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.expanded-details {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #ccc;
+}
+
+.anime-item img {
+    width: 120px;
+    height: 180px;
+    object-fit: cover;
+}
+
+.anime-item p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+.anime-item .episodes {
+    font-size: 12px;
+    color: #666;
+}
+
+.category-buttons {
+    display: flex;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.category-btn {
+    padding: 15px 25px;
+    background-color: #1b6ec2;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+.category-btn:hover {
+    background-color: #145a8f;
+}
+
+.back-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #6c757d;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+.anime-item button {
+    margin-top: 5px;
+    padding: 5px 10px;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.add-form textarea {
+    display: block;
+    width: 100%;
+    height: 80px;
+    padding: 8px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: inherit;
+}
+
+.add-form input[type="number"] {
+    padding: 8px;
+    width: 80px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.anime-item .details {
+    font-size: 12px;
+    font-style: italic;
+    color: #555;
+    margin: 5px 0;
+}
+
+.anime-item .rating {
+    font-weight: bold;
+    color: #1b6ec2;
+}
+
+.detail-page {
+    display: flex;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.detail-image {
+    width: 250px;
+    height: 370px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.detail-info {
+    flex: 1;
+}
+
+.detail-info h2 {
+    margin-top: 0;
+}
+
+.detail-section {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+}

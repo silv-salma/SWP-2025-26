@@ -1,0 +1,155 @@
+@page "/anime"
+@rendermode InteractiveServer
+@inject HttpClient Http
+@inject IJSRuntime JS
+
+<h3>Anime List</h3>
+
+<div class="search-section">
+    <input @bind="searchQuery" placeholder="Search anime..." />
+    <button @onclick="SearchAnime">Search</button>
+</div>
+
+@if (searchResults.Any())
+{
+    <div class="search-results">
+        <h4>Search Results</h4>
+        <div class="results-grid">
+            @foreach (var anime in searchResults)
+            {
+                <div class="anime-card" @onclick="() => SelectAnime(anime)">
+                    <img src="@anime.Images?.Jpg?.Image_url" alt="@anime.Title" />
+                    <p>@anime.Title</p>
+                </div>
+            }
+        </div>
+    </div>
+}
+
+@if (selectedAnime != null)
+{
+    <div class="add-form">
+        <h4>Add to Your List</h4>
+        <img src="@selectedAnime.Images?.Jpg?.Image_url" alt="@selectedAnime.Title" class="preview-image" />
+        
+        <p><strong>Title:</strong> @selectedAnime.Title</p>
+        <p><strong>Episodes:</strong> @(selectedAnime.Episodes?.ToString() ?? "Unknown")</p>
+        <p><strong>Status:</strong> @selectedAnime.Status</p>
+        
+        <label>Category:</label>
+        <select @bind="watchStatus">
+            <option value="">Select status...</option>
+            <option value="Finished">Finished Animes</option>
+            <option value="Watching">Still Watching Animes</option>
+            <option value="Going to watch">Going to Watch Animes</option>
+        </select>
+        
+        <label>Your Details:</label>
+        <textarea @bind="details" placeholder="Write your thoughts about this anime..."></textarea>
+        
+        <label>Rating (0-10):</label>
+        <input type="number" @bind="rating" min="0" max="10" />
+        
+        <button @onclick="AddToList" disabled="@string.IsNullOrEmpty(watchStatus)">Create</button>
+    </div>
+}
+
+<div class="category-buttons">
+    <a href="/anime/finished" class="category-btn">Finished Animes (@finishedCount)</a>
+    <a href="/anime/watching" class="category-btn">Still Watching Animes (@watchingCount)</a>
+    <a href="/anime/goingtowatch" class="category-btn">Going to Watch Animes (@goingToWatchCount)</a>
+</div>
+
+@code {
+    private string searchQuery = "";
+    private string watchStatus = "";
+    private string details = "";
+    private int rating = 5;
+    private JikanAnime? selectedAnime = null;
+    private List<JikanAnime> searchResults = new();
+    private List<AnimeItem> animeList = new();
+    private int finishedCount = 0;
+    private int watchingCount = 0;
+    private int goingToWatchCount = 0;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await LoadFromStorage();
+            UpdateCounts();
+            StateHasChanged();
+        }
+    }
+
+    private async Task LoadFromStorage()
+    {
+        var saved = await JS.InvokeAsync<string>("localStorage.getItem", "animeList");
+        if (!string.IsNullOrEmpty(saved))
+        {
+            animeList = System.Text.Json.JsonSerializer.Deserialize<List<AnimeItem>>(saved) ?? new();
+        }
+    }
+
+    private void UpdateCounts()
+    {
+        finishedCount = animeList.Count(a => a.WatchStatus == "Finished");
+        watchingCount = animeList.Count(a => a.WatchStatus == "Watching");
+        goingToWatchCount = animeList.Count(a => a.WatchStatus == "Going to watch");
+    }
+
+    private async Task SaveToStorage()
+    {
+        var json = System.Text.Json.JsonSerializer.Serialize(animeList);
+        await JS.InvokeVoidAsync("localStorage.setItem", "animeList", json);
+    }
+
+    private async Task SearchAnime()
+    {
+        if (string.IsNullOrWhiteSpace(searchQuery)) return;
+        
+        var response = await Http.GetFromJsonAsync<JikanSearchResponse>(
+            $"anime?q={searchQuery}&limit=10");
+        
+        if (response?.Data != null)
+        {
+            searchResults = response.Data;
+        }
+    }
+
+    private void SelectAnime(JikanAnime anime)
+    {
+        selectedAnime = anime;
+        watchStatus = "";
+        details = "";
+        rating = 5;
+    }
+
+    private async Task AddToList()
+    {
+        if (selectedAnime == null || string.IsNullOrEmpty(watchStatus)) return;
+        
+        animeList.Add(new AnimeItem
+        {
+            MalId = selectedAnime.Mal_id,
+            Title = selectedAnime.Title,
+            ImageUrl = selectedAnime.Images?.Jpg?.Image_url,
+            Synopsis = selectedAnime.Synopsis,
+            Episodes = selectedAnime.Episodes,
+            Status = selectedAnime.Status,
+            WatchStatus = watchStatus,
+            Details = details,
+            Rating = rating
+        });
+        
+        await SaveToStorage();
+        
+        UpdateCounts();
+        
+        selectedAnime = null;
+        searchResults.Clear();
+        searchQuery = "";
+        details = "";
+        rating = 5;
+    }
+}

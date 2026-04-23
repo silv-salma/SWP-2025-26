@@ -1,0 +1,71 @@
+@page "/anime/finished"
+@rendermode InteractiveServer
+@inject IJSRuntime JS
+@inject NavigationManager Nav
+
+<h3>Finished Animes</h3>
+
+<a href="/anime" class="back-btn">Back to Search</a>
+
+@inject NavigationManager Nav
+
+@if (finishedAnimes.Any())
+{
+    <div class="list-grid">
+        @foreach (var anime in finishedAnimes)
+        {
+            <div class="anime-item" @onclick="() => GoToDetails(anime)">
+                <img src="@anime.ImageUrl" alt="@anime.Title" />
+                <p>@anime.Title</p>
+                <p class="episodes">@anime.Episodes episodes</p>
+                <p class="rating">Rating: @anime.Rating/10</p>
+            </div>
+        }
+    </div>
+}
+else
+{
+    <p>No finished animes yet.</p>
+}
+
+@code {
+    private List<AnimeItem> finishedAnimes = new();
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await LoadFromStorage();
+            StateHasChanged();
+        }
+    }
+
+    private async Task LoadFromStorage()
+    {
+        var saved = await JS.InvokeAsync<string>("localStorage.getItem", "animeList");
+        if (!string.IsNullOrEmpty(saved))
+        {
+            var allAnime = System.Text.Json.JsonSerializer.Deserialize<List<AnimeItem>>(saved) ?? new();
+            finishedAnimes = allAnime.Where(a => a.WatchStatus == "Finished").ToList();
+        }
+    }
+
+    private void GoToDetails(AnimeItem anime)
+    {
+        Nav.NavigateTo($"/anime/details/{anime.MalId}");
+    }
+
+    private async Task DeleteAnime(AnimeItem anime)
+    {
+        var saved = await JS.InvokeAsync<string>("localStorage.getItem", "animeList");
+        if (!string.IsNullOrEmpty(saved))
+        {
+            var allAnime = System.Text.Json.JsonSerializer.Deserialize<List<AnimeItem>>(saved) ?? new();
+            allAnime.RemoveAll(a => a.MalId == anime.MalId && a.WatchStatus == anime.WatchStatus);
+            var json = System.Text.Json.JsonSerializer.Serialize(allAnime);
+            await JS.InvokeVoidAsync("localStorage.setItem", "animeList", json);
+            finishedAnimes.Remove(anime);
+            StateHasChanged();
+        }
+    }
+}
