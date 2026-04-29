@@ -1,0 +1,91 @@
+@page "/genshin/characters"
+@inject HttpClient Http
+@inject NavigationManager Nav
+@using System.Text.Json
+
+<h3>Character Tracker</h3>
+
+<a href="/genshin" class="back-btn">Back to Genshin Hub</a>
+
+<div class="search-section">
+    <input type="text" @bind="searchQuery" @bind:event="oninput" placeholder="Search characters..." />
+</div>
+
+@if (characters == null)
+{
+    <p>Loading characters...</p>
+}
+else
+{
+    <div class="results-grid">
+        @foreach (var character in filteredCharacters)
+        {
+            <div class="anime-card" @onclick="() => ToggleCharacter(character)">
+                <img src="@($"https://genshin.jmp.blue/characters/{character}/card")" alt="@character" />
+                <p>@character</p>
+                @if (trackedCharacters.Contains(character))
+                {
+                    <p class="episodes">✓ Tracked</p>
+                }
+            </div>
+        }
+    </div>
+}
+
+@if (trackedCharacters.Any())
+{
+    <div class="add-form" style="margin-top: 30px;">
+        <h4>Tracked Characters</h4>
+        @foreach (var character in trackedCharacters)
+        {
+            <div style="background-color: #1a1a2e; padding: 15px; border-radius: 8px; margin-bottom: 10px;">
+                <h5 style="margin-top: 0;">@character</h5>
+                <label>Level: 
+                    <input type="number" @bind="characterLevels[character]" min="1" max="90" style="width: 60px;" />
+                </label>
+                <button class="back-btn" style="margin-left: 10px; padding: 5px 10px; font-size: 12px;" @onclick="() => RemoveCharacter(character)">Remove</button>
+            </div>
+        }
+    </div>
+}
+
+@code {
+    private string[]? characters;
+    private List<string> trackedCharacters = new();
+    private Dictionary<string, int> characterLevels = new();
+    private string searchQuery = "";
+
+    public List<string> filteredCharacters => characters?.Where(c => c.Contains(searchQuery, StringComparison.OrdinalIgnoreCase)).Take(20).ToList() ?? new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            characters = await Http.GetFromJsonAsync<string[]>("https://genshin.jmp.blue/characters");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error loading characters: {ex.Message}");
+        }
+    }
+
+    private void ToggleCharacter(string character)
+    {
+        if (trackedCharacters.Contains(character))
+        {
+            trackedCharacters.Remove(character);
+            characterLevels.Remove(character);
+        }
+        else
+        {
+            trackedCharacters.Add(character);
+            characterLevels[character] = 1;
+        }
+    }
+
+    private void RemoveCharacter(string character)
+    {
+        trackedCharacters.Remove(character);
+        characterLevels.Remove(character);
+    }
+}

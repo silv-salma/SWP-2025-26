@@ -1,22 +1,43 @@
 @page "/anime/goingtowatch"
 @rendermode InteractiveServer
-@inject IJSRuntime JS
 @inject NavigationManager Nav
+@inject AnimeDbContext Db
+@using Microsoft.EntityFrameworkCore
 
 <h3>Going to Watch Animes</h3>
 
 <a href="/anime" class="back-btn">Back to Search</a>
+
+@if (editingAnime != null)
+{
+    <div class="add-form">
+        <h4>Edit @editingAnime.Title</h4>
+        <label>Rating (0-10): 
+            <input type="number" @bind="editingAnime.Rating" min="0" max="10" />
+        </label>
+        <label style="display: block; margin-top: 10px;">
+            Details/Notes:
+            <textarea @bind="editingAnime.Details" style="width: 100%; height: 80px; margin-top: 5px;"></textarea>
+        </label>
+        <div style="margin-top: 15px;">
+            <button class="back-btn" @onclick="SaveChanges">Save</button>
+            <button class="anime-item button" @onclick="() => editingAnime = null">Cancel</button>
+        </div>
+    </div>
+}
 
 @if (goingToWatchAnimes.Any())
 {
     <div class="list-grid">
         @foreach (var anime in goingToWatchAnimes)
         {
-            <div class="anime-item" @onclick="() => GoToDetails(anime)">
-                <img src="@anime.ImageUrl" alt="@anime.Title" />
-                <p>@anime.Title</p>
-                <p class="episodes">@anime.Episodes episodes</p>
-                <p class="rating">Rating: @anime.Rating/10</p>
+            <div class="anime-item">
+                <img src="@anime.ImageUrl" alt="@anime.Title" @onclick="() => GoToDetails(anime)" />
+                <p @onclick="() => GoToDetails(anime)">@anime.Title</p>
+                <p class="episodes" @onclick="() => GoToDetails(anime)">@anime.Episodes episodes</p>
+                <p class="rating" @onclick="() => GoToDetails(anime)">Rating: @anime.Rating/10</p>
+                <button class="back-btn" style="padding: 5px 10px; font-size: 12px; margin: 5px 15px;" @onclick="() => StartEdit(anime)">Edit</button>
+                <button @onclick="() => DeleteAnime(anime)">Remove</button>
             </div>
         }
     </div>
@@ -28,24 +49,17 @@ else
 
 @code {
     private List<AnimeItem> goingToWatchAnimes = new();
+    private AnimeItem? editingAnime = null;
 
-    protected override async Task OnAfterRenderAsync(bool firstRender)
+    protected override async Task OnInitializedAsync()
     {
-        if (firstRender)
-        {
-            await LoadFromStorage();
-            StateHasChanged();
-        }
+        await LoadFromDatabase();
     }
 
-    private async Task LoadFromStorage()
+    private async Task LoadFromDatabase()
     {
-        var saved = await JS.InvokeAsync<string>("localStorage.getItem", "animeList");
-        if (!string.IsNullOrEmpty(saved))
-        {
-            var allAnime = System.Text.Json.JsonSerializer.Deserialize<List<AnimeItem>>(saved) ?? new();
-            goingToWatchAnimes = allAnime.Where(a => a.WatchStatus == "Going to watch").ToList();
-        }
+        goingToWatchAnimes = await Db.AnimeItems.Where(a => a.WatchStatus == "Going to watch").ToListAsync();
+        Console.WriteLine($"Loaded {goingToWatchAnimes.Count} going-to-watch animes from DB");
     }
 
     private void GoToDetails(AnimeItem anime)
@@ -53,16 +67,45 @@ else
         Nav.NavigateTo($"/anime/details/{anime.MalId}");
     }
 
+    private void StartEdit(AnimeItem anime)
+    {
+        editingAnime = new AnimeItem
+        {
+            MalId = anime.MalId,
+            Title = anime.Title,
+            ImageUrl = anime.ImageUrl,
+            Synopsis = anime.Synopsis,
+            Episodes = anime.Episodes,
+            Status = anime.Status,
+            WatchStatus = anime.WatchStatus,
+            Details = anime.Details,
+            Rating = anime.Rating,
+            ShowDetails = anime.ShowDetails
+        };
+    }
+
+    private async Task SaveChanges()
+    {
+        var anime = await Db.AnimeItems.FirstOrDefaultAsync(a => a.MalId == editingAnime!.MalId && a.WatchStatus == editingAnime.WatchStatus);
+        if (anime != null)
+        {
+            anime.Rating = editingAnime.Rating;
+            anime.Details = editingAnime.Details;
+            await Db.SaveChangesAsync();
+            editingAnime = null;
+            await LoadFromDatabase();
+            StateHasChanged();
+        }
+    }
+
     private async Task DeleteAnime(AnimeItem anime)
     {
-        var saved = await JS.InvokeAsync<string>("localStorage.getItem", "animeList");
-        if (!string.IsNullOrEmpty(saved))
+        var item = await Db.AnimeItems.FirstOrDefaultAsync(a => a.MalId == anime.MalId && a.WatchStatus == anime.WatchStatus);
+        if (item != null)
         {
-            var allAnime = System.Text.Json.JsonSerializer.Deserialize<List<AnimeItem>>(saved) ?? new();
-            allAnime.RemoveAll(a => a.MalId == anime.MalId && a.WatchStatus == anime.WatchStatus);
-            var json = System.Text.Json.JsonSerializer.Serialize(allAnime);
-            await JS.InvokeVoidAsync("localStorage.setItem", "animeList", json);
-            goingToWatchAnimes.Remove(anime);
+            Db.AnimeItems.Remove(item);
+            await Db.SaveChangesAsync();
+            await LoadFromDatabase();
             StateHasChanged();
         }
     }

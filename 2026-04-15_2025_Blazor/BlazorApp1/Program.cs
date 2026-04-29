@@ -1,4 +1,5 @@
 using BlazorApp1.Components;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -6,6 +7,10 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("https://api.jikan.moe/v4/") });
+
+// Add SQLite database
+builder.Services.AddDbContext<AnimeDbContext>(options =>
+    options.UseSqlite("Data Source=anime.db"));
 
 var app = builder.Build();
 

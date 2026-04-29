@@ -1,7 +1,8 @@
 @page "/anime"
 @rendermode InteractiveServer
 @inject HttpClient Http
-@inject IJSRuntime JS
+@inject AnimeDbContext Db
+@using Microsoft.EntityFrameworkCore
 
 <h3>Anime List</h3>
 
@@ -44,13 +45,15 @@
             <option value="Going to watch">Going to Watch Animes</option>
         </select>
         
-        <label>Your Details:</label>
-        <textarea @bind="details" placeholder="Write your thoughts about this anime..."></textarea>
+        <label style="display: block; margin-top: 10px;">
+            Your Details:
+            <textarea @bind="details" placeholder="Write your thoughts about this anime..."></textarea>
+        </label>
         
         <label>Rating (0-10):</label>
         <input type="number" @bind="rating" min="0" max="10" />
         
-        <button @onclick="AddToList" disabled="@string.IsNullOrEmpty(watchStatus)">Create</button>
+        <button @onclick="AddToList" disabled="@string.IsNullOrEmpty(watchStatus)">Add to List</button>
     </div>
 }
 
@@ -67,41 +70,13 @@
     private int rating = 5;
     private JikanAnime? selectedAnime = null;
     private List<JikanAnime> searchResults = new();
-    private List<AnimeItem> animeList = new();
     private int finishedCount = 0;
     private int watchingCount = 0;
     private int goingToWatchCount = 0;
 
-    protected override async Task OnAfterRenderAsync(bool firstRender)
+    protected override async Task OnInitializedAsync()
     {
-        if (firstRender)
-        {
-            await LoadFromStorage();
-            UpdateCounts();
-            StateHasChanged();
-        }
-    }
-
-    private async Task LoadFromStorage()
-    {
-        var saved = await JS.InvokeAsync<string>("localStorage.getItem", "animeList");
-        if (!string.IsNullOrEmpty(saved))
-        {
-            animeList = System.Text.Json.JsonSerializer.Deserialize<List<AnimeItem>>(saved) ?? new();
-        }
-    }
-
-    private void UpdateCounts()
-    {
-        finishedCount = animeList.Count(a => a.WatchStatus == "Finished");
-        watchingCount = animeList.Count(a => a.WatchStatus == "Watching");
-        goingToWatchCount = animeList.Count(a => a.WatchStatus == "Going to watch");
-    }
-
-    private async Task SaveToStorage()
-    {
-        var json = System.Text.Json.JsonSerializer.Serialize(animeList);
-        await JS.InvokeVoidAsync("localStorage.setItem", "animeList", json);
+        await UpdateCounts();
     }
 
     private async Task SearchAnime()
@@ -129,7 +104,7 @@
     {
         if (selectedAnime == null || string.IsNullOrEmpty(watchStatus)) return;
         
-        animeList.Add(new AnimeItem
+        var animeItem = new AnimeItem
         {
             MalId = selectedAnime.Mal_id,
             Title = selectedAnime.Title,
@@ -139,17 +114,26 @@
             Status = selectedAnime.Status,
             WatchStatus = watchStatus,
             Details = details,
-            Rating = rating
-        });
+            Rating = rating,
+            ShowDetails = false
+        };
+
+        Db.AnimeItems.Add(animeItem);
+        await Db.SaveChangesAsync();
         
-        await SaveToStorage();
-        
-        UpdateCounts();
+        await UpdateCounts();
         
         selectedAnime = null;
         searchResults.Clear();
         searchQuery = "";
         details = "";
         rating = 5;
+    }
+
+    private async Task UpdateCounts()
+    {
+        finishedCount = await Db.AnimeItems.CountAsync(a => a.WatchStatus == "Finished");
+        watchingCount = await Db.AnimeItems.CountAsync(a => a.WatchStatus == "Watching");
+        goingToWatchCount = await Db.AnimeItems.CountAsync(a => a.WatchStatus == "Going to watch");
     }
 }
